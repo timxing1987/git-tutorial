@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>苏州车信网</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.pagination/jquery.twbsPagination.min.js"></script>
+    <script src="~/Scripts/jquery.fn.extend.js"></script>
+    <link href="~/Content/Pager.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.pager.js"></script>
+    <script src="~/Scripts/common.js"></script>
+<script type="text/javascript">
+    $(function () {
+        setCookie(); //设置cookie
+    });
+</script>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

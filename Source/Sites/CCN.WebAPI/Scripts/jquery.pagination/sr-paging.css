@@ -1,0 +1,19 @@
+﻿  .pagination {
+        width: auto;
+    }
+        .pagination li {
+            height: 32px;
+            background: #e6e6e6;
+            color: #7d7d7d;
+            font-size: 12px;           
+            line-height: 32px;
+            text-align: center;
+            float:left;          
+        }
+        .pagination > li > a {
+            background: #e6e6e6;
+            height: 32px;
+        }
+        .pagination > .disabled > a {
+            background: #e6e6e6;
+        }

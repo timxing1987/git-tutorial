@@ -1,0 +1,117 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+
+<script type="text/javascript">
+
+        $(function() {
+            QueryList();
+        });
+
+        function QueryList() {
+            var json = { Mobile: $("#mobile").val() };
+            $("#custlist").getPageListWithSort(20, "/api/Customer/GetCustPageList", json, LoadData);
+        }
+
+        function LoadData(data, index) {
+
+            $("#custlist tbody").empty();
+
+            var str = "";
+
+            $.each(data, function(key, val) {
+                str = "";
+                str += "<tr>";
+                str += "<td>" + (index + key) + "</td>";
+                str += "<td>" + (val.Custname == null ? "" : val.Custname.sub(20)) + "</td>";
+                str += "<td>" + val.Mobile + "</td>";
+                str += "<td>" + (val.Email == null ? "" : val.Email) + "</td>";
+                str += "<td>" + (val.Status == 1 ? "正常" : "<font color='red'>冻结中</font>") + "</td>";
+                str += "<td>" + ChangAuthStatus(val.AuthStatus) + "</td>";
+                str += "<td>" + Dateformat(val.Createdtime, "yyyy-MM-dd HH:mm:ss") + "</td>";
+                str += "<td><a href='/customer/customer/customerview?innerid=" + val.Innerid + "'>查看详情</a> ";
+                if (val.Status == 1) {
+                    str += "<a href='javascript:;' onclick=\"FrozenCust('" + val.Innerid + "');\">冻结</a> ";
+                }
+                else {
+                    str += "<a href='javascript:;' onclick=\"ThawCust('" + val.Innerid + "');\">解冻</a> ";
+                }
+                
+                str += "</td>";
+                str += "</tr>";
+                $("#custlist tbody").append(str);
+            });
+        }
+
+        function FrozenCust(id) {
+            $.get("/api/Customer/FrozenCust?innerid=" + id, function (result) {
+                alert(result.errmsg);
+                QueryList();
+            });
+        }
+
+        function ThawCust(id) {
+            $.get("/api/Customer/ThawCust?innerid=" + id, function (result) {
+                alert(result.errmsg);
+                QueryList();
+            });
+        }
+
+        //认证状态[0.未提交认证，1.提交认证(待审核)，2.审核通过，3.审核不过，4.重新填写(重新提交认证)]
+        function ChangAuthStatus(status) {
+
+            switch (status) {
+                case 0:
+                    return "未提交认证";
+                    break;
+                case 1:
+                    return "待审核";
+                    break;
+                case 2:
+                    return "审核通过";
+                    break;
+                case 3:
+                    return "审核不过";
+                    break;
+                case 4:
+                    return "重新填写";
+                    break;
+                default:
+
+            }
+        }
+</script>
+
+<div>
+    <div style="font-size:18px;font-weight:bold;text-align:center;line-height:20px;">会员列表</div>
+    <table style="margin: 0 auto;">
+        <tr>
+            <td>
+                手机号：<input type="tel" id="mobile" /><input type="button" value="搜索" onclick="QueryList();" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table id="custlist" class="gridtable">
+
+                    <thead>
+                        <tr>
+                            <td>序号</td>
+                            <td>昵称</td>
+                            <td>手机号</td>
+                            <td>Email</td>
+                            <td>状态</td>
+                            <td>认证状态</td>
+                            <td>注册时间</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+

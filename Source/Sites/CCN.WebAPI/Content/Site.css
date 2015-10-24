@@ -1,0 +1,102 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.hide {
+    display: none
+}
+
+/*table start*/
+table.gridtable {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+    margin: 0 auto;
+        }
+
+        table.gridtable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+
+        table.gridtable thead td {
+            font-size: 14px;
+            font-weight: bold;
+        }
+/*talbe end*/
+
+
+
+
+/* 分页控件样式 */
+.pagination {
+    float: right;
+}
+
+    .pagination > li > a:first-child, .pagination > li > span:first-child {
+        height: 34px;
+        font-size: 12px;
+        font-family: initial;
+        color: #7D7D7D;
+        background-color: #e6e6e6;
+    }
+
+    .pagination > li[class*="page"].active > a:first-child {
+        color: #ffffff;
+        background-color: #94cfff;
+    }
+
+    .pagination > li:hover > a:first-child {
+        color: #FFFFFF;
+        background-color: #FEC470;
+    }
+
+    .pagination > li:hover > span:first-child {
+        background-color: #FEC470;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        padding: 8px 12px;
+        border: 0px;
+    }
+
+    .pagination > li.pagenum > span {
+        width: 60px;
+        height: 34px;
+        padding: 6px 10px;
+    }
+
+        .pagination > li.pagenum > span > input[type=text] {
+            width: 40px;
+            height: 25px;
+            text-align: center;
+            margin-top: -1px;
+        }

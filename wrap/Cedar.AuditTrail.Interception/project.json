@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../Lib/Cedar.AuditTrail.Interception.dll",
+        "pdb": "../../Lib/Cedar.AuditTrail.Interception.pdb"
+      },
+      "dependencies": {
+        "Microsoft.Practices.EnterpriseLibrary.Common": "1.0.0-*",
+        "Microsoft.Practices.EnterpriseLibrary.PolicyInjection": "1.0.0-*",
+        "Microsoft.Practices.Unity": "1.0.0-*",
+        "Microsoft.Practices.Unity.Interception": "1.0.0-*"
+      }
+    }
+  }
+}

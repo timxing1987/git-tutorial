@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../Lib/Cedar.Framework.Common.Client.dll",
+        "pdb": "../../Lib/Cedar.Framework.Common.Client.pdb"
+      },
+      "dependencies": {
+        "Cedar.Core": "1.0.0-*",
+        "Microsoft.Practices.EnterpriseLibrary.Common": "1.0.0-*",
+        "Microsoft.Practices.EnterpriseLibrary.ExceptionHandling": "1.0.0-*",
+        "Microsoft.Practices.Unity": "1.0.0-*",
+        "System.Web.Mvc": "1.0.0-*"
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>礼券列表</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <link href="~/Content/Pager.css" rel="stylesheet"/>
+    <script src="~/Scripts/jquery.pager.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    
+    <script type="text/javascript">
+
+        $(function() {
+            setCookie(); //设置cookie
+            PageClick(1);
+        });
+
+        PageClick = function(pageclickednumber) {
+            var pagesize = 20;
+            var json = { isenabled: 1, PageSize: pagesize, PageIndex: pageclickednumber };
+
+            $.ajax({
+                url: '/api/Customer/GetCouponPageList',
+                data: JSON.stringify(json),
+                type: 'post',
+                datatype: 'application/json',
+                async: false,
+                headers: {
+                    "content-type": "application/json",
+                    //"cookie": "userid=aaa;sessionid=bbb"
+                },
+                success: function(result) {
+
+                    var maxcount = result.iTotalRecords; //总数据条数
+                    var data = result.aaData;
+
+                    if (data != null && data.length > 0) {
+
+                        var ys = maxcount % pagesize;
+                        var maxindex = 0; //计算出的总页数
+                        if (ys === 0) { //整除
+                            maxindex = maxcount / pagesize;
+                        } else {
+                            maxindex = (maxcount - ys) / pagesize + 1;
+                        }
+                        var startindex = (pageclickednumber - 1) * pagesize + 1;
+                        Load(data, startindex);
+                        $("#pager").pager({ pagenumber: pageclickednumber, pagecount: maxindex, buttonClickCallback: PageClick });
+                    } else {
+                        $("#couponlist tbody").empty().append("<li><h6 style='width: 882px;text-align:center;color:red'>暂无数据！</h6></li>");
+                    }
+                }
+            });
+        }
+
+        function Load(data, index) {
+
+            $("#couponlist tbody").empty();
+
+            var str = "";
+
+            $.each(data, function(key, val) {
+                str = "";
+                str += "<tr>";
+                str += "<td>" + (index + key) + "</td>";
+                str += "<td>" + (val.Title == null ? "" : val.Title.sub(400)) + "</td>";
+                str += "<td>" + val.Maxcount + "</td>";
+                str += "<td>" + val.Count + "</td>";
+                str += "<td>" + Dateformat(val.Createdtime, "yyyy-MM-dd HH:mm:ss") + "</td>";
+                str += "<td>" +
+                    "<a href='/customer/customer/couponedit?innerid=" + val.Innerid + "'>修改</a> " +
+                    //"<a href='javascript:;' click=''>删除</a> " +
+                    "<a href='/customer/customer/couponview?innerid=" + val.Innerid + "'>查询详情</a> " +
+                    "</td>";
+                str += "</tr>";
+                $("#couponlist tbody").append(str);
+            });
+        }
+
+
+    </script>
+    
+</head>
+<body>
+<div style="margin: 0 auto;">
+    <div style="font-size:18px;font-weight:bold;text-align:center">礼券列表</div>
+    <table id="couponlist" class="gridtable">
+
+        <thead>
+        <tr>
+            <td>序号</td>
+            <td>标题</td>
+            <td>总库存</td>
+            <td>剩余库存</td>
+            <td>创建时间</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="6" style="text-align: right">
+                <a href="/customer/customer/couponedit">添加</a>
+            </td>
+        </tr>
+            <tr>
+                <td colspan="6" style="text-align: right">
+                    <div id="pager"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>

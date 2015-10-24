@@ -1,0 +1,346 @@
+﻿
+@{
+    ViewBag.Title = "CustomerView";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<script type="text/javascript">
+
+    var innerid = "@ViewBag.innerid";  //会员id
+
+        $(function() {
+            Init();
+        });
+
+        function Init() {
+
+            if (innerid === "") {
+                return;
+            }
+
+            //会员基本信息
+            $.get("/api/Customer/GetCustById?innerid=" + innerid, function (data) {
+                console.log(data);
+
+                if (data.errcode != 0) {
+                    alert("获取会员基本信息失败！");
+                    return;
+                }
+
+                var obj = data.errmsg;
+
+                $("#custname").html(obj.Custname);
+                
+                $("#mobile").html(obj.Mobile);
+                $("#telephone").html(obj.Telephone);
+                $("#brithday").html(obj.Brithday);
+                $("#qq").html(obj.QQ);
+                $("#location").html(
+                    (obj.ProvName == null ? "" : obj.ProvName) + " " +
+                    (obj.CityName == null ? "" : obj.CityName) + " " +
+                    (obj.Area == null ? "" : obj.Area));
+                $("#status").html(obj.Status == 1 ? "正常" : "<font color='red'>冻结中</font>");
+
+                var headurl = "";
+                if (obj.Headportrait != "") {
+                    headurl = "http://7xlopw.com2.z0.glb.qiniucdn.com/" + obj.Headportrait;
+                }
+                else {
+                    headurl = obj.Wechat == null ? "" : obj.Wechat.Photo;
+                }
+
+                var qrcodeurl = "http://7xlopw.com2.z0.glb.qiniucdn.com/" + obj.QrCode;
+                $("#headportrait").html("<img width='150' height='150' src='" + headurl + "' />");
+                $("#qrcode").html("<img width='150' height='150' src='" + qrcodeurl + "' />");
+
+                $("#level").html(obj.Level);
+                $("#totalpoints").html(obj.Totalpoints);
+                $("#createdtime").html(Dateformat(obj.Createdtime, "yyyy-MM-dd HH:mm:ss"));
+
+                $("#authstatus").html(ChangAuthStatus(obj.AuthStatus));
+
+                //提交过认证信息
+                if (obj.AuthStatus != 0) {
+                    $.get("/api/Customer/GetCustAuthByCustid?custid=" + innerid, function (data) {
+                        console.log(data);
+                        if (data.errcode != 0) {
+                            alert("获取会员认证信息失败！");
+                            return;
+                        }
+                        var authObj = data.errmsg;
+
+                        $("#realname").html(authObj.Realname);
+                        $("#idcard").html(authObj.Idcard);
+                        $("#enterprisename").html(authObj.Enterprisename);
+                        $("#licencecode").html(authObj.Licencecode);
+                        $("#licencearea").html(authObj.Licencearea);
+                        $("#organizationcode").html(authObj.Organizationcode);
+                        $("#taxcode").html(authObj.Taxcode);
+
+                        var applytime = authObj.Modifiedtime == null ? authObj.Createdtime : authObj.Modifiedtime;
+                        $("#applytime").html(Dateformat(applytime, "yyyy-MM-dd HH:mm:ss"));
+
+                        $.each(authObj.Relevantpicture.split(","), function (key, val) {
+                            if ($.trim(val).length > 0) {
+                                $("#relevantpicture").append("<img style='max-width:200px;max-height=150px' src='http://7xlopw.com2.z0.glb.qiniucdn.com/" + val + "' />");
+                            }                            
+                        });
+
+                        //初始化块
+                        switch (obj.AuthStatus) {
+                            case 1:
+                            case 4:
+                                $("#btnAudit").removeClass("hide");
+                                $("#audit").removeClass("hide");
+                                break;
+                            case 2:
+                            case 3:
+                                $("tr[name='auditresult']").removeClass("hide");
+
+                                $("#auditper").html(authObj.AuditPer);
+                                $("#audittime").html(Dateformat(authObj.AuditTime, "yyyy-MM-dd HH:mm:ss"));
+                                $("#auditdescview").html(authObj.AuditDesc);
+                                break;
+                            default:
+
+                        }
+                    });
+                }
+            });
+
+            $("#btnAudit").click(function () {
+
+                var res = $("#auditresult").val();
+                if (res === "-1") {
+                    alert("请选择审核结果！");
+                    return;
+                }
+
+                var json = { Custid: innerid, AuditResult: res, AuditDesc: $("#auditdesc").val() };
+                if (!confirm("确认审核!")) {
+                    return;
+                }
+
+                $.post("/api/Customer/AuditAuthentication", json, function (data) {
+                    if (data.errcode == 0) {
+                        alert("操作成功");
+                        self.location = document.referrer;
+                    }
+                    else {
+                        alert("操作失败");
+                    }
+                });
+            });
+        }
+
+        //认证状态[0.未提交认证，1.提交认证(待审核)，2.审核通过，3.审核不过，4.重新填写(重新提交认证)]
+        function ChangAuthStatus(status) {
+
+            switch (status) {
+                case 0:
+                    return "未提交认证";
+                    break;
+                case 1:
+                    return "待审核";
+                    break;
+                case 2:
+                    return "审核通过";
+                    break;
+                case 3:
+                    return "审核不过";
+                    break;
+                case 4:
+                    return "重新填写";
+                    break;
+                default:
+
+            }
+        }
+</script>
+
+<div>
+    <div style="font-size:18px;font-weight:bold;text-align:center;line-height:20px;">会员详情</div>
+    <table style="margin: 0 auto;" class="gridtable">
+        <tr>
+            <td colspan="4" style="background-color:#ccc">
+                会员基本信息
+            </td>
+        </tr>
+        <tr>
+            <td>
+                头像
+            </td>
+            <td id="headportrait"></td>
+            <td>
+                二维码
+            </td>
+            <td id="qrcode"></td>
+        </tr>
+        <tr>
+            <td>
+                会员昵称
+            </td>
+            <td id="custname"></td>
+            <td>
+                手机号
+            </td>
+            <td id="mobile"></td>
+        </tr>
+        <tr>
+            <td>
+                生日
+            </td>
+            <td id="brithday"></td>
+            <td>
+                固定电话
+            </td>
+            <td id="telephone"></td>
+        </tr>
+        <tr>
+            
+            <td>
+                当前等级
+            </td>
+            <td id="level"></td>
+            <td>
+                当前积分
+            </td>
+            <td id="totalpoints"></td>
+        </tr>
+        <tr>
+            <td>
+                会员状态
+            </td>
+            <td id="status"></td>
+            <td>
+                注册时间
+            </td>
+            <td id="createdtime"></td>
+        </tr>
+        <tr>
+            <td>
+                QQ
+            </td>
+            <td id="qq"></td>
+            <td>
+                所在地
+            </td>
+            <td id="location"></td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color:#ccc">
+                会员认证信息
+            </td>
+        </tr>
+        <tr>
+            <td>
+                认证状态
+            </td>
+            <td id="authstatus"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                真实姓名
+            </td>
+            <td id="realname"></td>
+            <td>
+                身份证号
+            </td>
+            <td id="idcard"></td>
+        </tr>
+        <tr>
+            <td>
+                企业名称
+            </td>
+            <td id="enterprisename">
+
+            </td>
+            <td>工商营业执照注册号</td>
+            <td id="licencecode">
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                营业执照所在地
+            </td>
+            <td id="licencearea">
+
+            </td>
+            <td>组织机构代码号</td>
+            <td id="organizationcode">
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                税务登记证号
+            </td>
+            <td id="taxcode">
+
+            </td>
+            <td>申请时间</td>
+            <td id="applytime">
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                认证相关图片
+            </td>
+            <td id="relevantpicture" colspan="3"></td>
+        </tr>
+
+        <!--审核操作-->
+        <tr id="audit" class="hide">
+            <td>
+                审核操作
+            </td>
+            <td colspan="3">
+                <select id="auditresult">
+                    <option value="-1">请选择...</option>
+                    <option value="1">通过</option>
+                    <option value="0">不通过</option>
+                </select><br/>
+                <textarea id="auditdesc" maxlength="200" rows="5" cols="150" placeholder="请填写审核说明"></textarea>
+            </td>
+        </tr>
+        <!--审核操作-->
+
+        <!--审核结果-->
+        <tr name="auditresult" class="hide">
+            <td>
+                审核人
+            </td>
+            <td id="auditper">
+                
+            </td>
+            <td>
+                审核时间
+            </td>
+            <td id="audittime">
+                
+            </td>
+        </tr>
+        <tr name="auditresult" class="hide">
+            <td>
+                审核说明
+            </td>
+            <td colspan="3" id="auditdescview">
+                
+            </td>
+        </tr>
+        <!--审核结果-->
+        <tr>
+            <td colspan="4" style="text-align:center;">
+                <input type="button" value="审核" class="hide" id="btnAudit" />
+                <input type="button" value="返回" onclick="self.location=document.referrer;" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+

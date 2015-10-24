@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../Lib/Cedar.Core.dll",
+        "pdb": "../../Lib/Cedar.Core.pdb"
+      },
+      "dependencies": {
+        "Microsoft.Practices.Unity": "1.0.0-*"
+      }
+    }
+  }
+}

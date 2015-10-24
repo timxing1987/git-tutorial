@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>礼券详情</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    
+    <script type="text/javascript">
+
+        var id = "@ViewBag.innerid";
+
+        $(function () {
+            setCookie(); //设置cookie
+            Init();
+        });
+
+        function Init() {
+
+            if (id === "") {
+                return;
+            }
+
+            
+            $.ajax({
+                url: '/api/Customer/GetCouponById?innerid=' + id,
+                type: 'get',
+                datatype: 'application/json',
+                async: false,
+                success: function (data) {
+
+                    if (data.errcode !== 0) {
+                        alert("获取数据异常！");
+                    }
+
+                    var obj = data.errmsg;
+                    $("#title").html(obj.Title);
+                    $("#logo").html(obj.Logourl);
+                    $("#amount").html(obj.Amount);
+                    $("#count").html(obj.Maxcount+"/"+obj.Count);
+                    $("#codetype").html(obj.Codetype);
+                    $("#createdtime").html(obj.Createdtime);
+
+                    if (obj.Vtype === 1) {
+                        $("#vtype").html(Dateformat(obj.Vstart, "yyyy-MM-dd") + " 至" + Dateformat(obj.Vend, "yyyy-MM-dd"));
+                    } else {
+                        $("#vtype").html("领取后 " + obj.Value1 + " 天开始生效，有效天数为 " + obj.Value2 + " 天");
+                    }
+                }
+            });
+        }
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <div style="font-size:18px;font-weight:bold;text-align:center">礼券详情</div>
+        <table id="coupon" class="gridtable">
+            <tbody>
+                <tr>
+                    <td>标题</td>
+                    <td id="title"></td>
+                </tr>
+                <tr>
+                    <td>Logo</td>
+                    <td id="logo"></td>
+                </tr>
+                <tr>
+                    <td>面值</td>
+                    <td id="amount"></td>
+                </tr>
+                <tr>
+                    <td>有效期</td>
+                    <td id="vtype"></td>
+                </tr>
+                <tr>
+                    <td>库存</td>
+                    <td id="count"></td>
+                </tr>
+                <tr>
+                    <td>Code展示类</td>
+                    <td id="codetype"></td>
+                </tr>
+            <tr>
+                <td>创建时间</td>
+                <td id="createdtime"></td>
+            </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" value="返回" onclick="self.location=document.referrer;"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

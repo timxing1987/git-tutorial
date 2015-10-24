@@ -1,0 +1,10 @@
+﻿
+----------------------header--------------------------
+[INFO ] [2015-10-22 21:28:24,084] -[CCN.Modules.Customer.BusinessEntity.CustModel] 
+
+----------------------footer--------------------------
+
+----------------------header--------------------------
+[INFO ] [2015-10-22 21:32:03,925] -[{"Innerid":null,"Custname":null,"Password":"123456","Mobile":"15862409162","Telephone":null,"Email":null,"Headportrait":null,"Status":0,"AuthStatus":0,"Provid":0,"ProvName":null,"Cityid":0,"CityName":null,"Area":null,"Sex":0,"Brithday":null,"QQ":null,"Totalpoints":0,"Level":0,"QrCode":null,"Type":0,"Createdtime":null,"Modifiedtime":null,"VCode":"462409","Wechat":{"Innerid":null,"Custid":null,"Accountid":null,"Openid":"aaaaaaaabbbb","Nickname":null,"Sex":0,"Isdel":0,"Photo":null,"Remarkname":null,"Area":null,"Subscribe_time":null,"Subscribe":0,"Country":null,"Province":null,"City":null,"Createdtime":null},"TotalModel":null}] 
+
+----------------------footer--------------------------

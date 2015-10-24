@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../Lib/System.Web.WebPages.dll"
+      },
+      "dependencies": {
+        "Microsoft.Web.Infrastructure": "1.0.0-*",
+        "System.Web.Razor": "1.0.0-*",
+        "System.Web.WebPages.Deployment": "1.0.0-*"
+      }
+    }
+  }
+}

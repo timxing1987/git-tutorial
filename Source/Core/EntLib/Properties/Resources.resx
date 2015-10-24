@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationNameNotExists" xml:space="preserve">
+    <value> The application did not exist.</value>
+  </data>
+  <data name="CompressedMessageSizeCounterHelpResource" xml:space="preserve">
+    <value> The total size of compressed message.</value>
+  </data>
+  <data name="CompressionElapsedTimeCounterHelpResource" xml:space="preserve">
+    <value> The compression duration.</value>
+  </data>
+  <data name="ConcurrentUpdated" xml:space="preserve">
+    <value> The record has been updated by others.</value>
+  </data>
+  <data name="ConfiguraitonElementNotExists" xml:space="preserve">
+    <value> The configuration element whose name is "{0}" does not exist.</value>
+  </data>
+  <data name="CounterCategoryHelpResourceName" xml:space="preserve">
+    <value> The performance counters for iConnect.Core.</value>
+  </data>
+  <data name="ExceptionAppContextSettingsNotExists" xml:space="preserve">
+    <value> Cannot locate the "{0}" configuration section.</value>
+  </data>
+  <data name="ExceptionArgumentMustNotBeEmpty" xml:space="preserve">
+    <value> The provided string argument must not be empty.</value>
+  </data>
+  <data name="ExceptionCannotChangeReadonlyContextItem" xml:space="preserve">
+    <value> Cannot change or override the readonly ContextItem.</value>
+  </data>
+  <data name="ExceptionCannotLocateReadableProperty" xml:space="preserve">
+    <value> Cannot not find a readable "{0}" property for the type "{1}"</value>
+  </data>
+  <data name="ExceptionCannotLocateWriterableProperty" xml:space="preserve">
+    <value> Cannot not find a writable "{0}" property for the type "{1}"</value>
+  </data>
+  <data name="ExceptionCannotModifyReadonlyProperties" xml:space="preserve">
+    <value> Cannot modify the extended properties of the readonly ContextItem.</value>
+  </data>
+  <data name="ExceptionCannotModifyReadonlyValue" xml:space="preserve">
+    <value> Cannot modify the value of the readonly ContextItem.</value>
+  </data>
+  <data name="ExceptionCannotResolveTypeName" xml:space="preserve">
+    <value> Cannot resolve the assembly qualified type name "{0}".</value>
+  </data>
+  <data name="ExceptionConfigurationLoadFileNotFound" xml:space="preserve">
+    <value>The configuration file {0} is not found.</value>
+  </data>
+  <data name="ExceptionConfigurationLoadFileNotFound1" xml:space="preserve">
+    <value> ExceptionConfigurationLoadFileNotFound=The configuration file {0} could not be found.</value>
+  </data>
+  <data name="ExceptionConfigurationSectionNameAttributeNotExists" xml:space="preserve">
+    <value> The configuraiton section name is not specified by decorating the type "{0}" with a ConfigurationSectionNameAttribute.</value>
+  </data>
+  <data name="ExceptionContextCannotBeSerialized" xml:space="preserve">
+    <value> One or more current ContextItem cannot be serialized.</value>
+  </data>
+  <data name="ExceptionCultureNotExists" xml:space="preserve">
+    <value> The entry with the culture "{0}" does not exist.</value>
+  </data>
+  <data name="ExceptionCustomMessageCompressorNotExists" xml:space="preserve">
+    <value> You must specify the configuraton name of custom MessageCompressor when you select Custom MessageCompressor.</value>
+  </data>
+  <data name="ExceptionDatabaseDataTypeDoesNotHaveRequiredConstructor" xml:space="preserve">
+    <value>The database {0}'s data type does not have required constructor.</value>
+  </data>
+  <data name="ExceptionDatabaseDataTypeDoesNotInheritFromDatabaseData" xml:space="preserve">
+    <value>The database {0}'s data type does not inherit from database data.</value>
+  </data>
+  <data name="ExceptionDataPropertyDuplicateName" xml:space="preserve">
+    <value> The same property name "{0}" is configurated in the entity.</value>
+  </data>
+  <data name="ExceptionDefaultDatabaseNotExists" xml:space="preserve">
+    <value>There is no default database.</value>
+  </data>
+  <data name="ExceptionDefaultServiceLocatorNotExists" xml:space="preserve">
+    <value> The default service locator cannot be activated.</value>
+  </data>
+  <data name="ExceptionDepedentFileNameNotInitialized" xml:space="preserve">
+    <value> The DefaultCacheStore's expiration mode is specified "FileDepedency", but the "DependentFileName" is not specified.</value>
+  </data>
+  <data name="ExceptionDuplicateCulture" xml:space="preserve">
+    <value> The entry with the culture "{0}" exists.</value>
+  </data>
+  <data name="ExceptionDuplicateNeutralEntry" xml:space="preserve">
+    <value> There must be only one culture neutral entry.</value>
+  </data>
+  <data name="ExceptionEmptyArrayOrList" xml:space="preserve">
+    <value> The given list or array cannot be null or empty.</value>
+  </data>
+  <data name="ExceptionEntryAddedIntoAnotherSet" xml:space="preserve">
+    <value> The given entry has been added into another set.</value>
+  </data>
+  <data name="ExceptionEntryAddedIntoSet" xml:space="preserve">
+    <value> The given entry has been added into the set.</value>
+  </data>
+  <data name="ExceptionEntryNotAddedIntoSet" xml:space="preserve">
+    <value> The given entry is not added into the set.</value>
+  </data>
+  <data name="ExceptionExpiredTimeNotValidTimeSpan" xml:space="preserve">
+    <value> The specified expired time can not be parsed as a valid TimeSpan.</value>
+  </data>
+  <data name="ExceptionInvalidBackupLocator" xml:space="preserve">
+    <value> The backup ContextLocator must not be "{0}".</value>
+  </data>
+  <data name="ExceptionInvalidCast" xml:space="preserve">
+    <value> Invalid cast from type "{0}" to type "{1}".</value>
+  </data>
+  <data name="ExceptionInvalidCultureName" xml:space="preserve">
+    <value> Culture name "{0}" is invalid.</value>
+  </data>
+  <data name="ExceptionInvalidDatabaseName" xml:space="preserve">
+    <value> Cannot locate the database of "{0}" for the configuration.</value>
+  </data>
+  <data name="ExceptionInvalidExtendedFormatArguments" xml:space="preserve">
+    <value> The format length is invalid.</value>
+  </data>
+  <data name="ExceptionInvalidPageIndex" xml:space="preserve">
+    <value> The valid page index must be a positive integer.</value>
+  </data>
+  <data name="ExceptionInvalidPageSize" xml:space="preserve">
+    <value> The valid page size must be a positive integer.</value>
+  </data>
+  <data name="ExceptionInvalidThreadToCreateContextScope" xml:space="preserve">
+    <value> The ApplicationContextScope cannot be created in the same thread in which the context items are cloned.</value>
+  </data>
+  <data name="ExceptionInvalidTypeAssemblyQualifiedName" xml:space="preserve">
+    <value> Cannot load the type "{0}".</value>
+  </data>
+  <data name="ExceptionLocalizationFailed" xml:space="preserve">
+    <value> Cannot retrieve property '{0}' because localization failed.  Type '{1}' is not public or does not contain a public static string property with the name '{2}'.</value>
+  </data>
+  <data name="ExceptionMessageEntryNotExists" xml:space="preserve">
+    <value> The message entry "{0}" cannot be found from the category "{1}".</value>
+  </data>
+  <data name="ExceptionMethodMustBeImplementedBySubclasses" xml:space="preserve">
+    <value> The method just be only implemented in sub classes.</value>
+  </data>
+  <data name="ExceptionMissingConfigSection" xml:space="preserve">
+    <value> Cannot locate the configuration section of "{0}".</value>
+  </data>
+  <data name="ExceptionMissingConfigurationElementTypeAttribute" xml:space="preserve">
+    <value> The configuration element type is not mapped to the type "{0}" by applying ConfigurationElementTypeAttribute.</value>
+  </data>
+  <data name="ExceptionMustContainInterceptionExtension" xml:space="preserve">
+    <value> Container does not have the interception extension.</value>
+  </data>
+  <data name="ExceptionNeutralEntryNotExists" xml:space="preserve">
+    <value> There is no culture neutral entry.</value>
+  </data>
+  <data name="ExceptionNoConfigurationElementTypeAttribute" xml:space="preserve">
+    <value>There is no {0} configuration ElementTypeAttribute found.</value>
+  </data>
+  <data name="ExceptionNoConnectionStringSection" xml:space="preserve">
+    <value>There is no connection string section.</value>
+  </data>
+  <data name="ExceptionNoDatabaseDefined" xml:space="preserve">
+    <value>There is no database named {0} found.</value>
+  </data>
+  <data name="ExceptionNoProviderDefinedForConnectionString" xml:space="preserve">
+    <value>There is no provider defined for connection {0}.</value>
+  </data>
+  <data name="ExceptionNotApplyConfigurationElementAttribute" xml:space="preserve">
+    <value> The configuration element type is not specified by the ConfigurationElementAttribute applied to the type "{0}".</value>
+  </data>
+  <data name="ExceptionNotAssignableFrom" xml:space="preserve">
+    <value> The PropertyAccessor's type cannot be assignable fromThe given object's type.</value>
+  </data>
+  <data name="ExceptionNotDeployComponent" xml:space="preserve">
+    <value> No "{0}" can be resolved from deployed assemblies.</value>
+  </data>
+  <data name="ExceptionNotEventHandler" xml:space="preserve">
+    <value> The delegate {0} is not a valid event handler.</value>
+  </data>
+  <data name="ExceptionNotSoapMessage" xml:space="preserve">
+    <value> The CompressionEndpointBehavice can only be applied SOAP based endpoint .</value>
+  </data>
+  <data name="ExceptionNotSpeciifedConfigSection" xml:space="preserve">
+    <value> The  type of the configuration section of "{0}" is not "1".</value>
+  </data>
+  <data name="ExceptionOnlyInstanceInterceptorBeSupported" xml:space="preserve">
+    <value>OnlyInstanceInterceptorBeSupported</value>
+  </data>
+  <data name="ExceptionPropertyNotExists" xml:space="preserve">
+    <value> The property "{0}" is not defined in the type "{1}".</value>
+  </data>
+  <data name="ExceptionPropertyNotReadable" xml:space="preserve">
+    <value> The property "{0}" of the type "{1}" is not readable.</value>
+  </data>
+  <data name="ExceptionPropertyNotWritable" xml:space="preserve">
+    <value> The property "{0}" of the type "{1}" is not writable.</value>
+  </data>
+  <data name="ExceptionRangeDay" xml:space="preserve">
+    <value> Day of Week in Extended Format out of range.</value>
+  </data>
+  <data name="ExceptionRangeHour" xml:space="preserve">
+    <value> Hour in Extended Format out of range.</value>
+  </data>
+  <data name="ExceptionRangeMinute" xml:space="preserve">
+    <value> Minutes in Extended Format out of range.</value>
+  </data>
+  <data name="ExceptionRangeMonth" xml:space="preserve">
+    <value> Month of Year in Extended Format out of range.</value>
+  </data>
+  <data name="ExceptionSequenceNoElement" xml:space="preserve">
+    <value> There is no element in the sequence.</value>
+  </data>
+  <data name="ExceptionServiceLocatorNotExists" xml:space="preserve">
+    <value> The service locator "{0}" is not configured.</value>
+  </data>
+  <data name="ExceptionSettingsNotExists" xml:space="preserve">
+    <value> The configuration section "{0}" does not exist.</value>
+  </data>
+  <data name="ExceptionSettingSourceNotExists" xml:space="preserve">
+    <value> The setting source "{0}" is not configured.</value>
+  </data>
+  <data name="ExceptionTransformContextNotInitialized" xml:space="preserve">
+    <value> TransformContext is not initialized.</value>
+  </data>
+  <data name="ExceptionTransientCallInterceptOnlyForNonGenericInterface" xml:space="preserve">
+    <value> Transient call interception can only be used for non-generic interface.</value>
+  </data>
+  <data name="ExceptionTranslationEntryNotExists" xml:space="preserve">
+    <value> The message entry "{0}" (culture="{1}") cannot be found from the category "{2}".</value>
+  </data>
+  <data name="ExceptionTypeForCustomServiceLocatorMustDeriveFrom" xml:space="preserve">
+    <value> The Custom Service Locator '{0}' with Type '{1}' must derive from IServiceLocator.</value>
+  </data>
+  <data name="ExceptionTypeHasNoContructor" xml:space="preserve">
+    <value> The type "{0}" does not have default construtor.</value>
+  </data>
+  <data name="ExceptionTypeofContextCannotBeNull" xml:space="preserve">
+    <value> The Type of the service location context cannot be be.</value>
+  </data>
+  <data name="ExceptionTypesAreNotAssignable" xml:space="preserve">
+    <value> The type {1} cannot be assigned to variables of type {0}.</value>
+  </data>
+  <data name="ExceptionUnityConfigSectionNotExists" xml:space="preserve">
+    <value> Cannot locate the unity configuration section for the current configuration source.</value>
+  </data>
+  <data name="ExceptionUnityContainerNotExists" xml:space="preserve">
+    <value> The unity container "{0}" specified does not exist.</value>
+  </data>
+  <data name="ExceptionUnknownType" xml:space="preserve">
+    <value> &lt;unknown&gt;</value>
+  </data>
+  <data name="InterceptionNotSupportedForTransientCall" xml:space="preserve">
+    <value> The type {0} is not interceptable for Transient Call.</value>
+  </data>
+  <data name="ExceptionUnityConainerNotExists" xml:space="preserve">
+    <value>ExceptionUnityConainer {0} NotExists</value>
+  </data>
+</root>

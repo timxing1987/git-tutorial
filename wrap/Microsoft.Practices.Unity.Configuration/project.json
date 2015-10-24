@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../Lib/Microsoft.Practices.Unity.Configuration.dll"
+      },
+      "dependencies": {
+        "Microsoft.Practices.Unity": "1.0.0-*"
+      }
+    }
+  }
+}
